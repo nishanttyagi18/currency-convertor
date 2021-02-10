@@ -2,18 +2,18 @@ const axios = require('axios');
 // const api = require('./api')
 const express = require('express')
 const cors = require('cors')
+
 const app = express()
+
+const corsOptions = {
+    origin: 'http://127.0.0.1:5500'
+}
+
+app.use(cors(corsOptions))
 
 // const API_KEY = api
 const API_KEY = process.env.MY_KEY
 
-var corsOptions = {
-    origin: 'https://optimistic-cray-84cb8b.netlify.app/',
-    optionsSuccessStatus: 200, // For legacy browser support
-    methods: "GET, PUT"
-}
-
-app.use(cors(corsOptions));
 
 // var FROM = 'USD'
 // var TO = 'PKR'
