@@ -1,22 +1,22 @@
 const axios = require('axios');
 // const api = require('./api')
 const express = require('express')
-const cors = require('cors')
+// const cors = require('cors')
 const app = express()
 
 // const API_KEY = api
 const API_KEY = process.env.MY_KEY
 
-var corsOptions = {
-    origin: 'http://127.0.0.1:5500',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-  }
+// var corsOptions = {
+//     origin: 'http://127.0.0.1:5500',
+//     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+//   }
 
 // var FROM = 'USD'
 // var TO = 'PKR'
 var inputData = 2.3;
 
-app.get('/',cors(corsOptions),(req,res)=>{
+app.get('/',(req,res)=>{
     res.json({msg: "success"})
 })
 
@@ -26,7 +26,7 @@ app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
   })
 
-app.get('/convert/:from/:to/:input',cors(corsOptions),(req,res)=>{
+app.get('/convert/:from/:to/:input',(req,res)=>{
     var FROM = req.params.from 
     var TO = req.params.to 
     var inputData = req.params.input 
