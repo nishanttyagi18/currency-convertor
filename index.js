@@ -1,17 +1,22 @@
 const axios = require('axios');
 // const api = require('./api')
 const express = require('express')
-
+const cors = require('cors')
 const app = express()
 
 // const API_KEY = api
 const API_KEY = process.env.MY_KEY
 
+var corsOptions = {
+    origin: '*',
+    'Access-Control-Allow-Origin': '*'
+}
+
 // var FROM = 'USD'
 // var TO = 'PKR'
 var inputData = 2.3;
 
-app.get('/',(req,res)=>{
+app.get('/',cors(corsOptions),(req,res)=>{
     res.json({msg: "success"})
 })
 
@@ -21,7 +26,7 @@ app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
   })
 
-app.get('/convert/:from/:to/:input',(req,res)=>{
+app.get('/convert/:from/:to/:input',cors(corsOptions),(req,res)=>{
     var FROM = req.params.from 
     var TO = req.params.to 
     var inputData = req.params.input 
