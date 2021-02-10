@@ -8,9 +8,9 @@ const app = express()
 const API_KEY = process.env.MY_KEY
 
 var corsOptions = {
-    origin: '*',
-    'Access-Control-Allow-Origin': '*'
-}
+    origin: 'http://127.0.0.1:5500',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
 
 // var FROM = 'USD'
 // var TO = 'PKR'
